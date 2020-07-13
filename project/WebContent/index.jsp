@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title></title>
 </head>
 <body>
-	<jsp:forward page="search"/>
+	<jsp:forward page="login"/>
 </body>
 </html>

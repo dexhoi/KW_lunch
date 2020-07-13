@@ -7,7 +7,7 @@
     type="javax.sql.DataSource"
     factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
     driverClassName="org.postgresql.Driver"
-    url="jdbc:postgresql://localhost/lunch_db"
+    url="jdbc:postgresql://localhost/shop_db"
     username="postgres"
     password="postgres"/>
 

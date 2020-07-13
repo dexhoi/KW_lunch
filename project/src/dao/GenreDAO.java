@@ -1,6 +1,8 @@
 package dao;
 
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 import model.Genre;
 
@@ -46,6 +48,27 @@ public class GenreDAO extends AbstractDAO {
 		}
 
 		return result;
+	}
+
+	public List<String> getAll(){
+		List<String> list = new LinkedList<String>();
+
+		String query = "SELECT name FROM genre_tbl";
+
+		try(var con = getConnection();
+				var stmt = con.prepareStatement(query)) {
+
+
+			var rs = stmt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString("name"));
+			}
+
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+
+		return list;
 	}
 
 }
