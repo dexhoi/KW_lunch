@@ -70,13 +70,15 @@ public class RegistryShopController extends HttpServlet {
 
 		time = LocalTime.parse(timeStr);
 
-		var shop = new Shop(nameStr, genreId, price, time, addressStr);
+		int userId = Integer.parseInt(request.getSession().getAttribute("user_id").toString());
+
+		var shop = new Shop(userId, nameStr, genreId, price, time, addressStr);
 		var shopDAO = new ShopDAO();
 		var reviewDAO = new ReviewDAO();
 		var vacationDAO = new VacationDAO();
 
 		shopDAO.add(shop);
-		reviewDAO.add(shop.getId(), score);
+		reviewDAO.add(shop.getId(), userId, score);
 		vacationDAO.addAll(shop.getId(), vacations);
 
 		request.setAttribute("status", LunchStatus.add_success);

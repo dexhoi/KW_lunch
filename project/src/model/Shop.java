@@ -9,6 +9,7 @@ public class Shop {
 	private static GenreDAO genreDAO = new GenreDAO();
 
 	private int id;
+	private int userId;
 	private String name;
 	private int genreId;
 	private int price;
@@ -27,13 +28,15 @@ public class Shop {
 	 * @param offer
 	 * @param address
 	 */
-	public Shop(String name, int genreId, int price, LocalTime offer, String address) {
+	public Shop(int userId, String name, int genreId, int price, LocalTime offer, String address) {
+		setUserId(userId);
 		setName(name);
 		setGenreId(genreId);
 		setPrice(price);
 		setOffer(offer);
 		setAddress(address);
 	}
+
 
 
 	public String getGenreTxt() {
@@ -86,6 +89,14 @@ public class Shop {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 

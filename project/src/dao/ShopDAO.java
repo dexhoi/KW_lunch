@@ -57,7 +57,7 @@ public class ShopDAO extends AbstractDAO {
 
 			var rs = stmt.executeQuery();
 			while(rs.next()) {
-				var shop = new Shop(rs.getString("name"), rs.getInt("genre_id"), rs.getInt("price"), rs.getTime("offer_time").toLocalTime(),
+				var shop = new Shop(rs.getInt("user_id"), rs.getString("name"), rs.getInt("genre_id"), rs.getInt("price"), rs.getTime("offer_time").toLocalTime(),
 						rs.getString("address"));
 
 				shop.setId(rs.getInt("id"));
@@ -89,7 +89,7 @@ public class ShopDAO extends AbstractDAO {
 			var rs = stmt.executeQuery();
 
 			while(rs.next()) {
-				var shop = new Shop(rs.getString("name"), rs.getInt("genre_id"), rs.getInt("price"), rs.getTime("offer_time").toLocalTime(),
+				var shop = new Shop(rs.getInt("user_id"), rs.getString("name"), rs.getInt("genre_id"), rs.getInt("price"), rs.getTime("offer_time").toLocalTime(),
 						rs.getString("address"));
 
 				shop.setId(rs.getInt("id"));
@@ -119,7 +119,7 @@ public class ShopDAO extends AbstractDAO {
 
 			var rs = stmt.executeQuery();
 			while(rs.next()) {
-				var shop = new Shop(rs.getString("name"), rs.getInt("genre_id"), rs.getInt("price"), rs.getTime("offer_time").toLocalTime(),
+				var shop = new Shop(rs.getInt("user_id"), rs.getString("name"), rs.getInt("genre_id"), rs.getInt("price"), rs.getTime("offer_time").toLocalTime(),
 						rs.getString("address"));
 
 				shop.setId(rs.getInt("id"));
@@ -151,7 +151,7 @@ public class ShopDAO extends AbstractDAO {
 			var rs = stmt.executeQuery();
 
 			while(rs.next()) {
-				shop = new Shop(rs.getString("name"), rs.getInt("genre_id"), rs.getInt("price"), rs.getTime("offer_time").toLocalTime(),
+				shop = new Shop(rs.getInt("user_id"), rs.getString("name"), rs.getInt("genre_id"), rs.getInt("price"), rs.getTime("offer_time").toLocalTime(),
 						rs.getString("address"));
 
 				shop.setId(rs.getInt("id"));
