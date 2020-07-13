@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+<Resource
+    name="jdbc/source"
+    auth="Container"
+    maxTotal="100"
+    type="javax.sql.DataSource"
+    factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+    driverClassName="org.postgresql.Driver"
+    url="jdbc:postgresql://localhost/lunch_db"
+    username="postgres"
+    password="postgres"/>
+
+</Context>
