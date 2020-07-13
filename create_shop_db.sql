@@ -16,6 +16,7 @@ create table shop_tbl(
 	user_id integer not null,
 	name varchar (120) not null,
 	genre_id integer not null,
+	price integer not null,
 	offer_time time,
 	address varchar(120) not null,
 	
@@ -54,3 +55,5 @@ INSERT INTO genre_tbl(name) VALUES('和食');
 INSERT INTO genre_tbl(name) VALUES('中華');
 INSERT INTO genre_tbl(name) VALUES('洋食');
 INSERT INTO genre_tbl(name) VALUES('カレー');
+
+INSERT INTO user_tbl(name, password) VALUES('ironman', 'pass');

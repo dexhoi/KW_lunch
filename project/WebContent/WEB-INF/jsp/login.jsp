@@ -5,12 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/jquery-ui.css">
 </head>
-<body style="padding: 50px;">
+
+<body>
+	<jsp:include page="/WEB-INF/jsp/header.jsp"/>
+
 	<div class="container">
 		<h3 class="text-center " style="background-color: #b0e0e6">ユーザーログイン</h3>
 		<h5 class="text-center">IDとPASSWORDを入力してください</h5>
@@ -33,8 +32,5 @@
 		</p>
 	</div>
 
-
-	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
-	<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
 </body>
 </html>

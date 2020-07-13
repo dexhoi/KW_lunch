@@ -5,13 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>新規登録</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/jquery-ui.css">
 </head>
+
 <body>
-<body style="padding: 50px;">
+	<jsp:include page="/WEB-INF/jsp/header.jsp"/>
+
 	<div class="container">
 		<h3 class="text-center" style="background-color: #b0e0e6">新規ユーザー登録</h3>
 		<h5 class="text-center">新規登録を行ってください</h5>

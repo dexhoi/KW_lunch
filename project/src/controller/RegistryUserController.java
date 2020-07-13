@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDAO;
-import model.UserInfo;
+import model.User;
 
 /**
  * Servlet implementation class RegistryUserController
@@ -40,7 +40,12 @@ public class RegistryUserController extends HttpServlet {
 		String password = request.getParameter("pass");
 		String name = request.getParameter("name");
 
-		UserDAO.insertUser(new UserInfo(name, password));
+		var user = new User(name, password);
+
+		var userDAO = new UserDAO();
+		userDAO.add(user);
+
+		request.getSession().setAttribute("user", user);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/search.jsp").forward(request, response);
 	}

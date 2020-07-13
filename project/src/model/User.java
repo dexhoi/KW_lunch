@@ -1,23 +1,23 @@
 package model;
 
-public class UserInfo {
+public class User {
 	private String name;
 	private int id;
 	private String password;
 
-	public UserInfo() {}
+	public User() {}
 
-	public UserInfo(String name, String password) {
+	public User(String name, String password) {
 		this.name = name;
 		this.password = password;
 	}
 
-	public UserInfo(String name, int id) {
+	public User(String name, int id) {
 		this.name = name;
 		this.id = id;
 	}
 
-	public UserInfo(String name, int id, String password) {
+	public User(String name, int id, String password) {
 		this.id = id;
 		this.name = name;
 		this.password = password;

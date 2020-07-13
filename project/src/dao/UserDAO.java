@@ -6,21 +6,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.UserInfo;
+import model.User;
 
 public class UserDAO extends AbstractDAO {
 
-	public static List<UserInfo> getUserInfoList(){
-		List<UserInfo> list = new ArrayList<UserInfo>();
+	public List<User> getUserInfoList(){
+		List<User> list = new ArrayList<User>();
 		final String SQL = "select * from user_tbl";
 		//接続
 		try(var con = getConnection();
 				var pstmt = con.prepareStatement(SQL)){
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				list.add(new UserInfo(	rs.getString("name"),
-												rs.getInt("id"),
-												rs.getString("password")));
+				list.add(new User(rs.getString("name"),
+						rs.getInt("id"),
+						rs.getString("password")));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -28,16 +28,39 @@ public class UserDAO extends AbstractDAO {
 		return list;
 	}
 
-	public static int insertUser(UserInfo user){
-		final String INSERTSQL = "insert into user_tbl (name, password) values(?, ?)";
-		int row = 0;
+
+	public boolean isExists(User user) {
+		boolean result = false;
+		String query = "SELECT * FROM user_tbl WHERE name = ? AND password = ?";
+		try(var con = getConnection();
+				var stmt = con.prepareStatement(query)) {
+
+			stmt.setString(1, user.getName());
+			stmt.setString(2, user.getPassword());
+
+			var rs = stmt.executeQuery();
+			while(rs.next()) {
+				result = true;
+				user.setId(rs.getInt("id"));
+			}
+
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	public boolean add(User user){
+		boolean result = false;
+		String query = "INSERT INTO user_tbl(name, password) VALUES(?, ?)";
 		//接続
 		try(var con = getConnection();
-				var pstmt = con.prepareStatement(INSERTSQL, Statement.RETURN_GENERATED_KEYS)){
+				var pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
 			pstmt.setString(1, user.getName());
 			pstmt.setString(2, user.getPassword());
-			//update(反映)されます
-			row = pstmt.executeUpdate();
+
+			result = pstmt.executeUpdate() > 0;
 
 			var rs = pstmt.getGeneratedKeys();
 			while(rs.next()) {
@@ -46,6 +69,6 @@ public class UserDAO extends AbstractDAO {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return row;
+		return result;
 	}
 }

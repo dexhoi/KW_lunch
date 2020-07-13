@@ -6,11 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>TOP</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/jquery-ui.css">
 </head>
 <body style="background-color: #ffe4c4">
+	<jsp:include page="/WEB-INF/jsp/header.jsp"/>
+
 	<div class="container pt-5 text-center">
 		<h1 class="text-center">今日の瓦町ごはん</h1>
 
@@ -40,8 +39,8 @@
 
 				<div class="form-check form-check-inline">
 					<label class="form-check-label pr-3">ジャンル：</label> <input
-						class="form-check-input" type="radio" name="genre" value="1"
-						checked> <label class="form-check-label">ラーメン</label>
+						class="form-check-input" type="radio" name="genre" value="1">
+						 <label class="form-check-label">ラーメン</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="genre" value="2">
@@ -78,8 +77,5 @@
 
 	</div>
 
-
-	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
-	<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
 </body>
 </html>

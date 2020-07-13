@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDAO;
-import model.UserInfo;
+import model.User;
 import status.LunchStatus;
 
 /**
@@ -38,32 +37,20 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		//取得
 		String name = request.getParameter("name");
 		String password = request.getParameter("pass");
-		boolean isLogin = false;
 
-		//DAOを利用してテーブルの照会結果をDTOのリストで受けとる
-		List<UserInfo> list = UserDAO.getUserInfoList();
+		User user = new User(name, password);
+		var userDAO = new UserDAO();
 
-
-		UserInfo userinfo = null;
-		//idとpasswordが一致しているか判定
-		for(UserInfo work : list) {
-			if (name.equals(work.getName()) && password.equals(work.getPassword())) {
-				userinfo = new UserInfo(name, password);
-				isLogin = true;
-				break;
-			}
-		}
-		request.getSession().setAttribute("user", userinfo);
-
-		if (isLogin) {
-			request.getRequestDispatcher("/WEB-INF/jsp/search.jsp").forward(request, response);
-		}else {
+		if(!userDAO.isExists(user)) {
 			request.setAttribute("status", LunchStatus.login_fail);
 			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+			return;
 		}
+
+		request.getSession().setAttribute("user", user);
+		request.getRequestDispatcher("/WEB-INF/jsp/search.jsp").forward(request, response);
 	}
 }
 

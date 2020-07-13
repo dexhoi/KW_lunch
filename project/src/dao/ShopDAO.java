@@ -17,15 +17,16 @@ public class ShopDAO extends AbstractDAO {
 	 */
 	public boolean add(Shop shop) {
 		boolean result = false;
-		String query = "INSERT INTO shop_tbl(name, genre_id, price, offer_time, address) VALUES(?,?,?,?,?)";
+		String query = "INSERT INTO shop_tbl(user_id, name, genre_id, price, offer_time, address) VALUES(?,?,?,?,?,?)";
 		try(var con = getConnection();
 				var stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
 
-			stmt.setString(1, shop.getName());
-			stmt.setInt(2, shop.getGenreId());
-			stmt.setInt(3, shop.getPrice());
-			stmt.setTime(4, java.sql.Time.valueOf(shop.getOffer()));
-			stmt.setString(5, shop.getAddress());
+			stmt.setInt(1, shop.getUserId());
+			stmt.setString(2, shop.getName());
+			stmt.setInt(3, shop.getGenreId());
+			stmt.setInt(4, shop.getPrice());
+			stmt.setTime(5, java.sql.Time.valueOf(shop.getOffer()));
+			stmt.setString(6, shop.getAddress());
 
 			result = stmt.executeUpdate() > 0;
 

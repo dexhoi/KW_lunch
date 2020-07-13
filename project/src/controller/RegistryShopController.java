@@ -16,6 +16,7 @@ import dao.ShopDAO;
 import dao.VacationDAO;
 import model.Shop;
 import model.ShopChecker;
+import model.User;
 import status.LunchStatus;
 
 /**
@@ -25,12 +26,12 @@ import status.LunchStatus;
 public class RegistryShopController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegistryShopController() {
-        super();
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public RegistryShopController() {
+		super();
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,20 +53,23 @@ public class RegistryShopController extends HttpServlet {
 		String genreStr = request.getParameter("genre");
 		String timeStr = request.getParameter("time");
 		String addressStr = request.getParameter("address");
-		String[] vacationsStr = request.getParameterValues("vacation");
+		String[] vacationsStr = request.getParameterValues("vac");
 		String scoreStr = request.getParameter("score");
 
 		//
 		if(!ShopChecker.isAvailable(nameStr, priceStr, genreStr, timeStr, vacationsStr, addressStr, scoreStr)) {
 			request.setAttribute("status", LunchStatus.input_error);
-			request.getRequestDispatcher("/WEB-INF/jsp/registry.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/jsp/registry_shop.jsp").forward(request, response);
 			return;
 		}
 
 
-		int[] vacations = new int[vacationsStr.length];
-		for(int i = 0; i < vacationsStr.length; i++) {
-			vacations[i] = Integer.parseInt(vacationsStr[i]);
+		int[] vacations = null;
+		if(vacationsStr != null) {
+			vacations = new int[vacationsStr.length];
+			for(int i = 0; i < vacationsStr.length; i++) {
+				vacations[i] = Integer.parseInt(vacationsStr[i]);
+			}
 		}
 
 		LocalTime time = LocalTime.parse(timeStr);
@@ -76,7 +80,8 @@ public class RegistryShopController extends HttpServlet {
 
 		time = LocalTime.parse(timeStr);
 
-		int userId = Integer.parseInt(request.getSession().getAttribute("user_id").toString());
+		User user = (User)request.getSession().getAttribute("user");
+		int userId = user.getId();
 
 		var shop = new Shop(userId, nameStr, genreId, price, time, addressStr);
 		var shopDAO = new ShopDAO();

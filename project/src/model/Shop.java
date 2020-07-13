@@ -8,13 +8,13 @@ public class Shop {
 
 	private static GenreDAO genreDAO = new GenreDAO();
 
-	private int id;
-	private int userId;
-	private String name;
-	private int genreId;
-	private int price;
+	private int id = -1;
+	private int userId = -1;
+	private String name = "";
+	private int genreId = -1;
+	private int price = -1;
 	private LocalTime offer;
-	private String address;
+	private String address = "";
 
 	public Shop() {
 
