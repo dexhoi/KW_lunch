@@ -13,12 +13,12 @@
 
 			<h2>
 				検索結果：
-				<c:out value="${keyword}" />
+				<c:out value="${keyword}"/> 件: <c:out value="${shops.size}"/>
 			</h2>
 		</div>
 		<hr>
 
-		<c:forEach var="shop" items="${items}" varStatus="status">
+		<c:forEach var="shop" items="${shops}" varStatus="status">
 			<div class="row">
 				<div class="col">
 					<p>

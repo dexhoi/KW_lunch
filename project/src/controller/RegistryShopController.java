@@ -48,6 +48,8 @@ public class RegistryShopController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		String nameStr = request.getParameter("name");
 		String priceStr = request.getParameter("price");
 		String genreStr = request.getParameter("genre");

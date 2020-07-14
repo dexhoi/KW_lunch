@@ -34,6 +34,8 @@ public class SearchController extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		String keyword = request.getParameter("keyword");
 		String genreStr = request.getParameter("genre");
 		int genreId = -1;

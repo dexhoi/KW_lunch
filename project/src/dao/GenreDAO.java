@@ -31,7 +31,7 @@ public class GenreDAO extends AbstractDAO {
 
 	public String getGenreName(int genreId) {
 		String result = "";
-		String query = "SELECT id FROM genre_tbl WHERE id = ?";
+		String query = "SELECT name FROM genre_tbl WHERE id = ?";
 
 		try(var con = getConnection();
 				var stmt = con.prepareStatement(query)) {
