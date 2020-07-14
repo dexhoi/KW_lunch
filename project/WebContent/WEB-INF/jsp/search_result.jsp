@@ -57,7 +57,8 @@
 				</div>
 
 				<div class="col">
-					<form action="" method="post">
+					<form action="review" method="get">
+						<input type="hidden" name="shopId" value= "<c:out value="${shop.id}"/>">
 						<button type="submit" class="btn btn-primary">レビュー画面へ</button>
 					</form>
 				</div>

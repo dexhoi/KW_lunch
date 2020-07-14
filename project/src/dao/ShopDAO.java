@@ -143,7 +143,7 @@ public class ShopDAO extends AbstractDAO {
 	 */
 	public Shop get(int id) {
 		Shop shop = null;
-		String query = "SELECT * FROM shop_tb WHERE id = ?";
+		String query = "SELECT * FROM shop_tbl WHERE id = ?";
 		try(var con = getConnection();
 				var stmt = con.prepareStatement(query)) {
 
