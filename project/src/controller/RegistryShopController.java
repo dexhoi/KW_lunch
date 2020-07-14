@@ -58,8 +58,9 @@ public class RegistryShopController extends HttpServlet {
 		String[] vacationsStr = request.getParameterValues("vac");
 		String scoreStr = request.getParameter("score");
 
-		//
 		if(!ShopChecker.isAvailable(nameStr, priceStr, genreStr, timeStr, vacationsStr, addressStr, scoreStr)) {
+			var genreDAO = new GenreDAO();
+			request.setAttribute("genres", genreDAO.getAll());
 			request.setAttribute("status", LunchStatus.input_error);
 			request.getRequestDispatcher("/WEB-INF/jsp/registry_shop.jsp").forward(request, response);
 			return;

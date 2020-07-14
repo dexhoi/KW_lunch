@@ -38,8 +38,8 @@
 			<div class="row">
 
 				<div class="form-check form-check-inline">
-					<label class="form-check-label pr-3">ジャンル：</label> <input
-						class="form-check-input" type="radio" name="genre" value="1">
+					<label class="form-check-label pr-3">ジャンル：</label>
+					<input class="form-check-input" type="radio" name="genre" value="1" required>
 						 <label class="form-check-label">ラーメン</label>
 				</div>
 				<div class="form-check form-check-inline">

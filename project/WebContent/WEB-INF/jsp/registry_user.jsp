@@ -19,8 +19,8 @@
 					class="form-control w-50 " name="name" placeholder="ニックネーム">
 			</div>
 			<div class="form=group">
-				<label for="pass" class=>PASSWORD：</label>
-				 <input type="password" class="form-control w-50" name="pass" placeholder="パスワード">
+				<label for="pass" class=>PASSWORD：</label> <input type="password"
+					class="form-control w-50" name="pass" placeholder="パスワード">
 			</div>
 			<br> <br>
 			<button type="submit" class="btn btn-info mb-2  text-center">登録</button>

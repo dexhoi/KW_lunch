@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -8,7 +9,7 @@
 <body>
 	<jsp:include page="/WEB-INF/jsp/header.jsp" />
 
-	<div class="container" style="max-width:1200px;">
+	<div class="container" style="max-width:1400px;">
 		<div class="alert alert-primary text-center" role="alert">
 
 			<h2>
@@ -58,8 +59,15 @@
 
 				<div class="col-sm">
 					<p>
+						登録者:
+						<c:out value="${shop.userName}"/>
+					</p>
+				</div>
+
+				<div class="col-sm">
+					<p>
 						レビュー:
-						<c:out value="${shop.scoreAVG}"/>
+						<fmt:formatNumber value="${shop.scoreAVG}" maxFractionDigits="2" />
 					</p>
 				</div>
 

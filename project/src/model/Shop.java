@@ -4,11 +4,13 @@ import java.time.LocalTime;
 
 import dao.GenreDAO;
 import dao.ReviewDAO;
+import dao.UserDAO;
 
 public class Shop {
 
 	private static GenreDAO genreDAO = new GenreDAO();
 	private static ReviewDAO reviewDAO = new ReviewDAO();
+	private static UserDAO userDAO = new UserDAO();
 
 	private int id = -1;
 	private int userId = -1;
@@ -40,6 +42,13 @@ public class Shop {
 	}
 
 
+	/**
+	 * 登録ユーザ名を取得する
+	 * @return
+	 */
+	public String getUserName() {
+		return userDAO.getUserName(userId);
+	}
 
 	/**
 	 * この店の評価の平均値を取得する

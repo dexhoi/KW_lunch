@@ -10,10 +10,14 @@ import model.User;
 
 public class UserDAO extends AbstractDAO {
 
+	/**
+	 * すべてのユーザを取得する
+	 * @return
+	 */
 	public List<User> getUserInfoList(){
 		List<User> list = new ArrayList<User>();
 		final String SQL = "select * from user_tbl";
-		//接続
+
 		try(var con = getConnection();
 				var pstmt = con.prepareStatement(SQL)){
 			ResultSet rs = pstmt.executeQuery();
@@ -29,6 +33,11 @@ public class UserDAO extends AbstractDAO {
 	}
 
 
+	/**
+	 * ユーザが存在するか確認する
+	 * @param user
+	 * @return
+	 */
 	public boolean isExists(User user) {
 		boolean result = false;
 		String query = "SELECT * FROM user_tbl WHERE name = ? AND password = ?";
@@ -51,6 +60,11 @@ public class UserDAO extends AbstractDAO {
 		return result;
 	}
 
+	/**
+	 * 新規ユーザを作成し、IDを割り振る
+	 * @param user
+	 * @return
+	 */
 	public boolean add(User user){
 		boolean result = false;
 		String query = "INSERT INTO user_tbl(name, password) VALUES(?, ?)";
@@ -66,6 +80,30 @@ public class UserDAO extends AbstractDAO {
 			while(rs.next()) {
 				user.setId(rs.getInt("id"));
 			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	/**
+	 * ユーザIDと一致するユーザー名を表示する
+	 * @param userId
+	 * @return
+	 */
+	public String getUserName(int userId) {
+		String result = "";
+		String query = "SELECT name FROM user_tbl WHERE id = ?";
+		try(var con = getConnection();
+				var stmt = con.prepareStatement(query)) {
+
+			stmt.setInt(1, userId);
+
+			var rs = stmt.executeQuery();
+			while(rs.next()) {
+				result = rs.getString("name");
+			}
+
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
