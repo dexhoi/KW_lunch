@@ -33,9 +33,13 @@
 			      <li class="nav-item active">
 			        <a class="nav-link" href="logout">ログアウト</a>
 			      </li>
+			       <li class="nav-item active">
+			        <a class="nav-link" href="search">トップに戻る</a>
+			      </li>
 			    </ul>
 			  </div><!-- /.navbar-collapse -->
 			</nav>
 			<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
   			<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
 		</body>
+</html>
