@@ -8,33 +8,33 @@
 <body>
 	<jsp:include page="/WEB-INF/jsp/header.jsp" />
 
-	<div class="container">
+	<div class="container" style="max-width:1200px;">
 		<div class="alert alert-primary text-center" role="alert">
 
 			<h2>
 				検索結果：
-				<c:out value="${keyword}"/> 件: <c:out value="${size}"/>
+				<c:out value="${keyword}"/> <c:out value="${size}"/>件
 			</h2>
 		</div>
 		<hr>
 
 		<c:forEach var="shop" items="${shops}" varStatus="status">
 			<div class="row">
-				<div class="col">
+				<div class="col-sm">
 					<p>
 						店名:
 						<c:out value="${shop.name}" />
 					</p>
 				</div>
 
-				<div class="col">
+				<div class="col-sm">
 					<p>
 						ジャンル:
 						<c:out value="${shop.genreTxt}" />
 					</p>
 				</div>
 
-				<div class="col">
+				<div class="col-sm">
 					<p>
 						料金:
 						<c:out value="${shop.price}" />
@@ -42,29 +42,35 @@
 				</div>
 
 
-				<div class="col">
+				<div class="col-sm">
 					<p>
 						提供時間:
 						<c:out value="${shop.offer}" />
 					</p>
 				</div>
 
-				<div class="col">
+				<div class="col-sm">
 					<p>
 						住所:
 						<c:out value="${shop.address}" />
 					</p>
 				</div>
 
-				<div class="col">
-					<form action="review" method="get">
-						<input type="hidden" name="shopId" value= "<c:out value="${shop.id}"/>">
-						<button type="submit" class="btn btn-primary">レビュー画面へ</button>
-					</form>
+				<div class="col-sm">
+					<p>
+						レビュー:
+						<c:out value="${shop.scoreAVG}"/>
+					</p>
 				</div>
 
-				<hr>
+				<div class="col-sm">
+					<form action="review" method="get">
+						<input type="hidden" name="shopId" value= "<c:out value="${shop.id}"/>">
+						<button type="submit" class="btn btn-success">レビューする</button>
+					</form>
+				</div>
 			</div>
+			<hr/>
 		</c:forEach>
 	</div>
 

@@ -3,10 +3,12 @@ package model;
 import java.time.LocalTime;
 
 import dao.GenreDAO;
+import dao.ReviewDAO;
 
 public class Shop {
 
 	private static GenreDAO genreDAO = new GenreDAO();
+	private static ReviewDAO reviewDAO = new ReviewDAO();
 
 	private int id = -1;
 	private int userId = -1;
@@ -38,6 +40,17 @@ public class Shop {
 	}
 
 
+
+	/**
+	 * この店の評価の平均値を取得する
+	 * @return 取得に失敗した場合は-1
+	 */
+	public double getScoreAVG() {
+		if(id == -1) {
+			return -1;
+		}
+		return reviewDAO.avg(id);
+	}
 
 	public String getGenreTxt() {
 		return genreDAO.getGenreName(genreId);
