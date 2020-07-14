@@ -61,6 +61,7 @@ public class SearchController extends HttpServlet {
 		request.setAttribute("keyword", keyword);
 		//request.setAttribute("genre", );
 		request.setAttribute("shops", shops);
+		request.setAttribute("size", shops.size());
 		request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp").forward(request, response);
 	}
 

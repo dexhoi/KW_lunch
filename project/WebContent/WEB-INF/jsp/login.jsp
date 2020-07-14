@@ -12,14 +12,14 @@
 
 	<div class="container">
 		<h3 class="text-center " style="background-color: #b0e0e6">ユーザーログイン</h3>
-		<h5 class="text-center">IDとPASSWORDを入力してください</h5>
+		<h5 class="text-center">名前とパスワードを入力してください</h5>
 		<form action="login" method="post">
 			<div class="form-group">
-				<label for="id">ID</label> <input type="text"
-					class="form-control w-50 " name="name" placeholder="ID">
+				<label for="id">Name</label> <input type="text"
+					class="form-control w-50 " name="name" placeholder="名前">
 			</div>
 			<div class="form=group">
-				<label for="pass" class=>パスワード</label> <input type="password"
+				<label for="pass" class=>Password</label> <input type="password"
 					class="form-control w-50" name="pass" placeholder="パスワード">
 			</div>
 			<br> <br>

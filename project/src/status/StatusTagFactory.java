@@ -26,7 +26,7 @@ public class StatusTagFactory {
 			}
 		}
 
-		return "未定義";
+		return "";
 	}
 
 }

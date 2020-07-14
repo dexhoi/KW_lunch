@@ -13,7 +13,7 @@
 
 			<h2>
 				検索結果：
-				<c:out value="${keyword}"/> 件: <c:out value="${shops.size}"/>
+				<c:out value="${keyword}"/> 件: <c:out value="${size}"/>
 			</h2>
 		</div>
 		<hr>
