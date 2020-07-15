@@ -42,15 +42,19 @@ public class RegistryShopController extends HttpServlet {
 	/**
 	 * Base64文字コードから画像ファイルに変換し保存する
 	 * @param bs Base64文字列
-	 * @param fileName ファイル名
+	 * @param idx 番号
+	 * @return ファイル名
 	 */
-	public static void transImg(String bs, int shopId, File temp, String fileName) {
+	public static String transImg(String bs, int shopId, File temp, int idx) {
+		String fileName = "";
     	if(bs.contains("jpeg")) {
     		bs = bs.replace("data:image/jpeg;base64,", "");
+    		fileName = idx + ".jpeg";
     	}
 
     	if(bs.contains("png")) {
     		bs = bs.replace("data:image/png;base64,", "");
+    		fileName = idx + ".png";
     	}
 
     	String root = temp + SEPARATOR + shopId;
@@ -69,6 +73,8 @@ public class RegistryShopController extends HttpServlet {
         }catch(IOException e) {
         	e.printStackTrace();
         }
+
+        return fileName;
     }
 
 
@@ -96,8 +102,7 @@ public class RegistryShopController extends HttpServlet {
 		String addressStr = request.getParameter("address");
 		String[] vacationsStr = request.getParameterValues("vac");
 		String scoreStr = request.getParameter("score");
-		String imgDataStr = request.getParameter("imgData");
-		String imgNameStr = request.getParameter("file");
+		String[] imgDataStrs = request.getParameterValues("imgData");
 
 		if(!ShopChecker.isAvailable(nameStr, priceStr, genreStr, timeStr, vacationsStr, addressStr, scoreStr)) {
 			var genreDAO = new GenreDAO();
@@ -136,10 +141,14 @@ public class RegistryShopController extends HttpServlet {
 		reviewDAO.add(shop.getId(), userId, score);
 		vacationDAO.addAll(shop.getId(), vacations);
 
-		if(imgDataStr != null && imgNameStr != null) {
-			var tempDir = (File)request.getServletContext().getAttribute("javax.servlet.context.tempdir");
-			transImg(imgDataStr, shop.getId(), tempDir, imgNameStr);
-			ImageDAO.insertImg(shop.getId(), imgNameStr);
+		if(imgDataStrs != null && imgDataStrs.length > 0) {
+			int idx = 0;
+			for(var imgData : imgDataStrs) {
+				var tempDir = (File)request.getServletContext().getAttribute("javax.servlet.context.tempdir");
+				String fileName = transImg(imgData, shop.getId(), tempDir, idx);
+				new ImageDAO().insertImg(shop.getId(), fileName);
+				idx++;
+			}
 		}
 
 		request.setAttribute("status", LunchStatus.add_success);
