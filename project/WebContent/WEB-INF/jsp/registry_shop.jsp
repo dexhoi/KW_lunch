@@ -135,8 +135,18 @@
 
 	<script type="text/javascript">
 		idx = 0;
+		const MAX_IMG = 5;
 
 		function toBase64(img) {
+			if (!img.files.length){
+				return;
+			}
+
+			if(idx > MAX_IMG){
+				alert('画像の最大アップロード枚数は5枚までです');
+				return;
+			}
+
 			var root = document.getElementById("img");
 
 			var imgDataElm = document.createElement("input");
@@ -146,8 +156,6 @@
 
 			root.appendChild(imgDataElm);
 
-			if (!img.files.length)
-				return;
 			var reader = new FileReader();
 
 			var img = img.files[0];
@@ -162,7 +170,6 @@
 				imgElm.src = reader.result;
 				imgElm.setAttribute("width", 100);
 				imgElm.setAttribute("height", 100);
-
 
 				colElm.appendChild(imgElm);
 				imgShowElm.appendChild(colElm);

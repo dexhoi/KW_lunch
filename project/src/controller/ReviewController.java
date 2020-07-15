@@ -38,13 +38,10 @@ public class ReviewController extends HttpServlet {
     		shopId = Integer.parseInt(shopIdstr);
     	}catch(NumberFormatException e) {
     		e.printStackTrace();
-    	}
-
-    	if(shopId == -1) {
-			request.setAttribute("status", LunchStatus.input_error);
+    		request.setAttribute("status", LunchStatus.input_error);
 			request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp").forward(request, response);
 			return;
-		}
+    	}
 
     	Shop shop = shopDAO.get(shopId);
     	if(shop == null) {
@@ -59,7 +56,6 @@ public class ReviewController extends HttpServlet {
     	request.setAttribute("name", name);
 
     	request.getRequestDispatcher("/WEB-INF/jsp/review.jsp").forward(request, response);
-
     }
 
 	/**
@@ -80,21 +76,16 @@ public class ReviewController extends HttpServlet {
 			score = Integer.parseInt(scorestr);
 		}catch(NumberFormatException e) {
 			e.printStackTrace();
-		}
-
-
-		if(shopId == -1) {
 			request.setAttribute("status", LunchStatus.input_error);
 			request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp").forward(request, response);
 			return;
 		}
 
-
 		ReviewDAO reviewDAO = new ReviewDAO();
 		reviewDAO.add(shopId, userId, score);
 
+		request.setAttribute("status", LunchStatus.review_success);
 		request.getRequestDispatcher("/WEB-INF/jsp/search.jsp").forward(request, response);
-
 	}
 
 }

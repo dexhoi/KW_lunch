@@ -56,8 +56,8 @@ border-radius:30px;
 			<div class="row">
 
 				<div class="form-check form-check-inline">
-					<label class="form-check-label pr-3">ジャンル：</label> <input
-						class="form-check-input" type="radio" name="genre" value="1">
+					<label class="form-check-label pr-3">ジャンル：</label>
+					<input class="form-check-input" type="radio" name="genre" value="1" checked>
 					<label class="form-check-label"><div style="font-size: 0;">
 							<figure style="display: inline-block; position: relative;">
 								<img src="img/lamen.jpg" width="110px" height="110px">
