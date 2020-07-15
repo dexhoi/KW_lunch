@@ -11,6 +11,10 @@ import java.util.List;
 
 import org.postgresql.shaded.com.ongres.scram.common.bouncycastle.base64.Base64;
 
+/**
+ * img_tblのDAO
+ *
+ */
 public class ImageDAO extends AbstractDAO {
 
 	private static final String SEPARATOR = System.getProperty("file.separator");

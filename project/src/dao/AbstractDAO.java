@@ -8,6 +8,10 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+/**
+ * データベースコネクションを確立します
+ *
+ */
 public class AbstractDAO {
 
 	private static Context context = null;

@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * ユーザ情報を格納する
+ *
+ */
 public class User {
 	private String name;
 	private int id;

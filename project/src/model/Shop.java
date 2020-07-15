@@ -7,6 +7,10 @@ import dao.ReviewDAO;
 import dao.UserDAO;
 import dao.VacationDAO;
 
+/**
+ * 店情報を格納する
+ *
+ */
 public class Shop {
 
 	private static GenreDAO genreDAO = new GenreDAO();

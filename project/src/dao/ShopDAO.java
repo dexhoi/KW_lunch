@@ -8,6 +8,10 @@ import java.util.List;
 
 import model.Shop;
 
+/**
+ * shop_tblのDAO
+ *
+ */
 public class ShopDAO extends AbstractDAO {
 
 	/**

@@ -8,6 +8,10 @@ import java.util.List;
 
 import model.User;
 
+/**
+ * user_tblのDAO
+ *
+ */
 public class UserDAO extends AbstractDAO {
 
 	/**

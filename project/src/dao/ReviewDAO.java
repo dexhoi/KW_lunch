@@ -2,6 +2,10 @@ package dao;
 
 import java.sql.SQLException;
 
+/**
+ * review_tblのDAO
+ *
+ */
 public class ReviewDAO extends AbstractDAO {
 
 	/**

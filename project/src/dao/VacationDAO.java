@@ -6,6 +6,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * vac_tblのDAO
+ *
+ */
 public class VacationDAO extends AbstractDAO {
 
 	private static Map<Integer, String> vacMap;
