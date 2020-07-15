@@ -13,7 +13,7 @@ import model.User;
 import status.LunchStatus;
 
 /**
- * Servlet implementation class LoginController
+ * ログイン制御
  */
 @WebServlet("/login")
 public class LoginController extends HttpServlet {

@@ -5,11 +5,13 @@ import java.time.LocalTime;
 import dao.GenreDAO;
 import dao.ReviewDAO;
 import dao.UserDAO;
+import dao.VacationDAO;
 
 public class Shop {
 
 	private static GenreDAO genreDAO = new GenreDAO();
 	private static ReviewDAO reviewDAO = new ReviewDAO();
+	private static VacationDAO vacationDAO = new VacationDAO();
 	private static UserDAO userDAO = new UserDAO();
 
 	private int id = -1;
@@ -21,16 +23,16 @@ public class Shop {
 	private String address = "";
 
 	public Shop() {
-
 	}
 
 	/**
-	 *
-	 * @param name
-	 * @param genreId
-	 * @param price
-	 * @param offer
-	 * @param address
+	 * 店のインスタンス生成
+	 * @param userId 投稿者ユーザID
+	 * @param name 店名
+	 * @param genreId ジャンルID
+	 * @param price 価格帯
+	 * @param offer 食べられる時間(m)
+	 * @param address 住所
 	 */
 	public Shop(int userId, String name, int genreId, int price, LocalTime offer, String address) {
 		setUserId(userId);
@@ -51,6 +53,14 @@ public class Shop {
 	}
 
 	/**
+	 * 定休日情報を文字列で取得する
+	 * @return
+	 */
+	public String getVacations() {
+		return vacationDAO.generateTxt(getId());
+	}
+
+	/**
 	 * この店の評価の平均値を取得する
 	 * @return 取得に失敗した場合は-1
 	 */
@@ -61,6 +71,10 @@ public class Shop {
 		return reviewDAO.avg(id);
 	}
 
+	/**
+	 * ジャンル名を取得する
+	 * @return
+	 */
 	public String getGenreTxt() {
 		return genreDAO.getGenreName(genreId);
 	}
@@ -120,7 +134,4 @@ public class Shop {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
-
-
 }

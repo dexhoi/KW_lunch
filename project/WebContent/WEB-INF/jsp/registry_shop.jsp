@@ -50,7 +50,7 @@
 			<div class="row">
 				<div class="col">
 					<label>料金[必須]</label><input class="form-control w-50" type="number"
-						name="price" value="1" required />
+						name="price" value="250" min="1" required />
 				</div>
 			</div>
 			<div class="row">
@@ -98,6 +98,9 @@
 
 				</div>
 			</div>
+
+			<hr>
+
 			<div class="row">
 				<div class="col-sm">
 					<br> <br> <label>評価[必須]</label>
@@ -114,8 +117,10 @@
 
 			</div>
 
+			<hr>
+
 			<div class="row">
-				<br> <br> <label>画像のアップロード</label> <input type="file"
+				<br> <br> <label>画像アップロード</label> <input type="file"
 					class="form-control-file" name="file" id="customFile"
 					accept="image/*" onchange="toBase64(this)">
 			</div>

@@ -15,7 +15,7 @@ import model.User;
 import status.LunchStatus;
 
 /**
- * Servlet implementation class ReviewController
+ * レビューの追加
  */
 @WebServlet("/review")
 public class ReviewController extends HttpServlet {

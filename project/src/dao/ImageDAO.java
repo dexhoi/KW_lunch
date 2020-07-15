@@ -15,7 +15,13 @@ public class ImageDAO extends AbstractDAO {
 
 	private static final String SEPARATOR = System.getProperty("file.separator");
 
-	public boolean insertImg(int shopId, String imgPath){
+	/**
+	 * 画像パスを商品IDとともに追加する
+	 * @param shopId 商品ID
+	 * @param imgPath 画像パス
+	 * @return
+	 */
+	public boolean add(int shopId, String imgPath){
 		String query = "insert into img_tbl (shop_id, img_path) values(?, ?)";
 		//接続
 		try(var con =getConnection();
@@ -31,6 +37,11 @@ public class ImageDAO extends AbstractDAO {
 	}
 
 
+	/**
+	 * 商品IDと一致するすべての画像パスを取得する
+	 * @param shop_id 商品ID
+	 * @return
+	 */
 	public List<String> getImgList(int shop_id){
 		List<String> list = new ArrayList<String>();
 		final String SQL = "select * from img_tbl where shop_id = ?";
@@ -51,8 +62,8 @@ public class ImageDAO extends AbstractDAO {
 
 	/**
 	 * 画像ファイルを読み込んでBase64形式に変換します
-	 * @param path
-	 * @return
+	 * @param path 画像パス
+	 * @return Base64形式の画像文字列
 	 */
 	public String convertBase64(String path) {
 
@@ -91,8 +102,8 @@ public class ImageDAO extends AbstractDAO {
 
 	/**
 	 * ShopIDと一致するすべての画像ファイルをBase64形式に変換して取得します
-	 * @param shopId
-	 * @param root
+	 * @param shopId 商品ID
+	 * @param root TomcatのTEMPフォルダ
 	 * @return
 	 */
 	public List<String> getImgDataByShopId(int shopId, File root){

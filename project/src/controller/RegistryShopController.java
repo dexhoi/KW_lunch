@@ -24,7 +24,7 @@ import model.User;
 import status.LunchStatus;
 
 /**
- * Servlet implementation class RegistryController
+ * 店の追加
  */
 @WebServlet("/registry_shop")
 public class RegistryShopController extends HttpServlet {
@@ -45,7 +45,7 @@ public class RegistryShopController extends HttpServlet {
 	 * @param idx 番号
 	 * @return ファイル名
 	 */
-	public static String transImg(String bs, int shopId, File temp, int idx) {
+	public String transImg(String bs, int shopId, File temp, int idx) {
 		String fileName = "";
     	if(bs.contains("jpeg")) {
     		bs = bs.replace("data:image/jpeg;base64,", "");
@@ -141,12 +141,13 @@ public class RegistryShopController extends HttpServlet {
 		reviewDAO.add(shop.getId(), userId, score);
 		vacationDAO.addAll(shop.getId(), vacations);
 
+		// 画像 がアップロードされていたら
 		if(imgDataStrs != null && imgDataStrs.length > 0) {
 			int idx = 0;
 			for(var imgData : imgDataStrs) {
 				var tempDir = (File)request.getServletContext().getAttribute("javax.servlet.context.tempdir");
 				String fileName = transImg(imgData, shop.getId(), tempDir, idx);
-				new ImageDAO().insertImg(shop.getId(), fileName);
+				new ImageDAO().add(shop.getId(), fileName);
 				idx++;
 			}
 		}

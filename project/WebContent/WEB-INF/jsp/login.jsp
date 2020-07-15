@@ -1,14 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="status.LunchStatus, status.StatusTagFactory" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
+<%
+	String msg = "";
+	LunchStatus status = (LunchStatus)request.getAttribute("status");
+	if(status != null){
+		StatusTagFactory factory = StatusTagFactory.getInstance();
+		msg = factory.build(status);
+	}
+%>
+
 </head>
 
 <body>
 	<jsp:include page="/WEB-INF/jsp/header.jsp"/>
+	<%= msg %>
+
 
 	<div class="container">
 		<h3 class="text-center " style="background-color: #b0e0e6">ユーザーログイン</h3>

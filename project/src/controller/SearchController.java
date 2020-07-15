@@ -14,7 +14,7 @@ import dao.ShopDAO;
 import model.Shop;
 
 /**
- * Servlet implementation class SearchController
+ * 店の検索
  */
 @WebServlet("/search")
 public class SearchController extends HttpServlet {
@@ -31,7 +31,6 @@ public class SearchController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/jsp/search.jsp").forward(request, response);
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");

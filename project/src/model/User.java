@@ -7,16 +7,23 @@ public class User {
 
 	public User() {}
 
+	/**
+	 * ユーザインスタンスを生成する
+	 * @param name ユーザ名
+	 * @param password パスワード
+	 */
 	public User(String name, String password) {
 		this.name = name;
 		this.password = password;
 	}
 
-	public User(String name, int id) {
-		this.name = name;
-		this.id = id;
-	}
 
+	/**
+	 * ユーザインスタンスを生成
+	 * @param name ユーザ名
+	 * @param id ユーザID
+	 * @param password パスワード
+	 */
 	public User(String name, int id, String password) {
 		this.id = id;
 		this.name = name;

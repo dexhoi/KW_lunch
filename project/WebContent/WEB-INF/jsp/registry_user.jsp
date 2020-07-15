@@ -16,11 +16,11 @@
 		<form action="registry_user" method="post">
 			<div class="form-group">
 				<label for="name">NAME：</label> <input type="text"
-					class="form-control w-50 " name="name" placeholder="ニックネーム">
+					class="form-control w-50 " name="name" placeholder="ニックネーム" required>
 			</div>
 			<div class="form=group">
 				<label for="pass" class=>PASSWORD：</label> <input type="password"
-					class="form-control w-50" name="pass" placeholder="パスワード">
+					class="form-control w-50" name="pass" placeholder="パスワード" required>
 			</div>
 			<br> <br>
 			<button type="submit" class="btn btn-info mb-2  text-center">登録</button>

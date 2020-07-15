@@ -12,7 +12,7 @@ import dao.UserDAO;
 import model.User;
 
 /**
- * Servlet implementation class RegistryUserController
+ * ユーザの新規登録
  */
 @WebServlet("/registry_user")
 public class RegistryUserController extends HttpServlet {
@@ -39,6 +39,11 @@ public class RegistryUserController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String password = request.getParameter("pass");
 		String name = request.getParameter("name");
+
+		if(name == null || password == null) {
+			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+			return;
+		}
 
 		var user = new User(name, password);
 

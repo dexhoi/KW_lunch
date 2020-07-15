@@ -39,7 +39,6 @@
 
 								boolean flag = true;
 								for(String img : imgs){
-
 									if(flag){
 										flag = false;
 										out.println("<div class='carousel-item active'>");
@@ -53,19 +52,6 @@
 								}
 							%>
 						</div>
-
-
-						<!-- スライドコントロールの設定 -->
-						<!--
-						<a class="carousel-control-prev" href="#carouselOption1" role="button" data-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						 <span class="sr-only">前へ</span>
-						</a>
-						<a class="carousel-control-next" href="#carouselOption1" role="button" data-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="sr-only">次へ</span>
-						</a>
-						 -->
 					</div>
 
 
@@ -82,6 +68,13 @@
 					<p>
 						ジャンル:
 						<c:out value="${shop.genreTxt}" />
+					</p>
+				</div>
+
+				<div class="col-sm">
+					<p>
+						定休日:
+						<c:out value="${shop.vacations}"/>
 					</p>
 				</div>
 
