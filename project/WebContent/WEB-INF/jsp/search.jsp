@@ -56,8 +56,19 @@ border-radius:30px;
 			<div class="row">
 
 				<div class="form-check form-check-inline">
-					<label class="form-check-label pr-3">ジャンル：</label>
+				<label class="form-check-label pr-3">ジャンル：</label>
 					<input class="form-check-input" type="radio" name="genre" value="1" checked>
+					<label class="form-check-label"><div style="font-size: 0;">
+							<figure style="display: inline-block; position: relative;">
+								<img src="img/udon3.jpeg" width="110px" height="110px">
+								<figcaption
+									style="position: absolute; top: 62px; left: 15px; font-size: 26px; color: #f0ffff;font-weight: bold;">うどん</figcaption>
+							</figure>
+						</div></label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="genre" value="2">
 					<label class="form-check-label"><div style="font-size: 0;">
 							<figure style="display: inline-block; position: relative;">
 								<img src="img/lamen.jpg" width="110px" height="110px">
@@ -68,44 +79,18 @@ border-radius:30px;
 				</div>
 
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="genre" value="2">
-					<label class="form-check-label"><div style="font-size: 0;">
-							<figure style="display: inline-block; position: relative;">
-								<img src="img/udon3.jpeg" width="110px" height="110px">
-								<figcaption
-									style="position: absolute; top: 62px; left: 15px; font-size: 26px; color: #f0ffff;font-weight: bold;">うどん</figcaption>
-							</figure>
-						</div></label>
-				</div>
-
-
-				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="genre" value="3">
 					<label class="form-check-label"><div style="font-size: 0;">
 					<figure style="display: inline-block; position: relative;">
 							<img src="img/teishoku.jpg" width="110px" height="110px">
 						<figcaption
-									style="position: absolute; top: 62px; left:15px;font-size: 26px; color: #f0ffff; font-weight: bold;">ごはん</figcaption>
+									style="position: absolute; top: 62px; left:15px;font-size: 26px; color: #f0ffff; font-weight: bold;">和食</figcaption>
 							</figure>
 						</div></label>
 				</div>
 
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="genre" value="4">
-					<label class="form-check-label"><div style="font-size: 0;">
-					<figure style="display: inline-block; position: relative;">
-							<img src="img/carry2.jpg" width="110px" height="110px">
-						<figcaption
-									style="position: absolute; top: 62px; left:15px;font-size: 26px; color: #f0ffff; font-weight: bold;">カレー</figcaption>
-							</figure>
-						</div></label>
-				</div>
-
-
-
-
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="genre" value="5">
 					<label class="form-check-label"><div style="font-size: 0;">
 					<figure style="display: inline-block; position: relative;">
 							<img src="img/chinese3.jpg" width="110px" height="110px">
@@ -115,14 +100,24 @@ border-radius:30px;
 						</div></label>
 				</div>
 
-
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="genre" value="6">
+					<input class="form-check-input" type="radio" name="genre" value="5">
 					<label class="form-check-label"><div style="font-size: 0;">
 					<figure style="display: inline-block; position: relative;">
 							<img src="img/youshoku.jpeg" width="110px" height="110px">
 							<figcaption
 									style="position: absolute; top: 62px; left:28px;font-size: 26px; color: #f0ffff; font-weight: bold;">洋食</figcaption>
+							</figure>
+						</div></label>
+				</div>
+
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="genre" value="6">
+					<label class="form-check-label"><div style="font-size: 0;">
+					<figure style="display: inline-block; position: relative;">
+							<img src="img/carry2.jpg" width="110px" height="110px">
+						<figcaption
+									style="position: absolute; top: 62px; left:15px;font-size: 26px; color: #f0ffff; font-weight: bold;">カレー</figcaption>
 							</figure>
 						</div></label>
 				</div>

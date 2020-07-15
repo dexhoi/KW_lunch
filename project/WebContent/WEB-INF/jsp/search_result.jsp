@@ -10,7 +10,7 @@
 <body>
 	<jsp:include page="/WEB-INF/jsp/header.jsp" />
 
-	<div class="container" style="max-width: 1400px;">
+	<div class="container" style="max-width: 1500px;">
 		<div class="alert alert-primary text-center" role="alert">
 
 			<h2>

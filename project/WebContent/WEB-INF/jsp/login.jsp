@@ -39,9 +39,12 @@
 			<br> <br>
 		</form>
 
-		<p class="text-center">
-				<button class="btn btn-primary"><a class="text-white" href="registry_user">新規登録</a></button>
-		</p>
+		<hr>
+
+		<form class="text-right" action="registry_user" method="get">
+			<button class="btn btn-success" role="submit">新規登録</button>
+		</form>
+
 	</div>
 
 </body>
