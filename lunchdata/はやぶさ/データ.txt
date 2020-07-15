@@ -1,0 +1,3 @@
+INSERT INTO shop-tbl(user_id,name,gene_id,price,offer_time,address)
+VALUSES(1,'はやぶさ',2,1000,'00:20:00','香川県高松市瓦町1-4-8')
+
