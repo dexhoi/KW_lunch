@@ -32,8 +32,15 @@
 		<div class="collapse navbar-collapse" id="Navber">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
+					<h3 class="nav-link">
+						今日の瓦町ごはん
+					</h3>
+				</li>
+
+				<li class="nav-item active">
 					<p class="nav-link">
-						ログイン名:<%= userName %></p>
+						ユーザ名:<%= userName %>
+					</p>
 				</li>
 				<li class="nav-item active"><a class="nav-link" href="search">トップに戻る</a>
 				</li>
