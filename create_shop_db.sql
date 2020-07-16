@@ -111,6 +111,19 @@ INSERT INTO shop_tbl(user_id,name,genre_id,price,offer_time,address)
 VALUES(3,'たも屋',1,300,'00:5:00','香川県高松市南新町11-9 南新町ビル　１Ｆ');
 
 
+INSERT INTO shop_tbl (user_id,name,genre_id,price,offer_time,address) 
+VALUES(2, '中国酒家', 4, 800, '00:15:00', '香川県高松市常磐町２-２-１ グレイトサクセスビル１階');
+
+INSERT INTO shop_tbl (user_id,name,genre_id,price,offer_time,address) 
+VALUES(1, '彩宴', 4, 900, '00:20:00', '塩上町12-1');
+
+INSERT INTO shop_tbl (user_id,name,genre_id,price,offer_time,address) 
+VALUES(1, 'ドント飯店', 4, 660, '00:30:00', '香川県高松市常磐町２-５-２');
+
+INSERT INTO shop_tbl (user_id,name,genre_id,price,offer_time,address) 
+VALUES(2, 'おひつの山しろ', 3, 1000, '00:15:00', '香川県高松市常磐町1-5-5 2F');
+
+
 INSERT INTO img_tbl(shop_id, img_path) VALUES(1, '0.jpg');
 INSERT INTO img_tbl(shop_id, img_path) VALUES(1, '1.jpg');
 INSERT INTO img_tbl(shop_id, img_path) VALUES(1, '2.jpg');
@@ -136,7 +149,10 @@ INSERT INTO img_tbl(shop_id, img_path) VALUES(13, '0.jpg');
 INSERT INTO img_tbl(shop_id, img_path) VALUES(14, '0.jpg');
 INSERT INTO img_tbl(shop_id, img_path) VALUES(15, '0.jpg');
 INSERT INTO img_tbl(shop_id, img_path) VALUES(16, '0.jpg');
-
+INSERT INTO img_tbl(shop_id, img_path) VALUES(17, '0.jpg');
+INSERT INTO img_tbl(shop_id, img_path) VALUES(18, '0.jpg');
+INSERT INTO img_tbl(shop_id, img_path) VALUES(19, '0.jpg');
+INSERT INTO img_tbl(shop_id, img_path) VALUES(20, '0.jpg');
 
 INSERT INTO review_tbl(shop_id, user_id, score) VALUES(1,1,2);
 INSERT INTO review_tbl(shop_id, user_id, score) VALUES(2,1,3);
@@ -154,3 +170,8 @@ INSERT INTO review_tbl(shop_id, user_id, score) VALUES(13,3,3);
 INSERT INTO review_tbl(shop_id, user_id, score) VALUES(14,3,3);
 INSERT INTO review_tbl(shop_id, user_id, score) VALUES(15,3,1);
 INSERT INTO review_tbl(shop_id, user_id, score) VALUES(16,3,3);
+
+INSERT INTO review_tbl(shop_id, user_id, score) VALUES(17,2,2);
+INSERT INTO review_tbl(shop_id, user_id, score) VALUES(18,2,2);
+INSERT INTO review_tbl(shop_id, user_id, score) VALUES(19,3,2);
+INSERT INTO review_tbl(shop_id, user_id, score) VALUES(20,2,3);
